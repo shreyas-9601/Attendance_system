@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Attendance{% endblock title %}
+{% load static %}
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'css/attend.css' %}">
+{% endblock css_files %}
+{% block content %}
+<div class="container-fluid">
+<div id="camera">
+    <div class="frm">
+        <button type="button" onclick="onCamera()">Start</button>
+        <button type="button" onclick="offCamera()">End</button>
+    </div>
+    <div>
+        <img src="{% static 'animation/face.gif' %}" alt="" id="webcam">
+    </div>
+    <script>
+        imgOb = document.getElementById('webcam');
+        function onCamera() {
+            imgOb.setAttribute('src', "{% url 'video_feed' %}")
+        }
+        function offCamera() {
+            imgOb.setAttribute('src', "{% static 'animation/face.gif' %}")
+        }
+    </script>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Log In{% endblock title %}
+{% block css_files %}
+{% endblock css_files %}
+{% block content %}
+<div class="container-fluid col-12 col-md-4 login">
+    <div style="color:white;">
+        <h2 style="text-align:center;">Log In</h2>
+        <form method="post" enctype="multipart/form-data">
+            <div class="container">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit">Log In</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock content %}
